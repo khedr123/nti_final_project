@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'screens/splash_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/verify_screen.dart';
+
 import 'screens/add_service.dart';
+import 'screens/login_screen.dart';
+import 'screens/splash_screen.dart';
+import 'screens/verify_screen.dart';
 
 void main() {
   runApp(const MyApp());

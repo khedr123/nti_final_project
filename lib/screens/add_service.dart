@@ -55,6 +55,15 @@ class AddService extends StatelessWidget {
                 obscureText: false,
               ),
               Text(
+                'Category',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              ),
+              CustomTextfield(
+                label: 'Category',
+                controller: serviceNameController,
+                obscureText: false,
+              ),
+              Text(
                 'Stock',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
