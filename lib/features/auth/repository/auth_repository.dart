@@ -16,3 +16,4 @@ class AuthRepository {
     return response.data ?? {};
   }
 }
+
