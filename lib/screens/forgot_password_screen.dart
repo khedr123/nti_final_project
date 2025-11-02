@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nti_final_project/screens/widgets/constants.dart';
-import 'package:nti_final_project/screens/widgets/custom_input_field';
+import 'package:nti_final_project/screens/widgets/custom_input_field.dart';
 import 'package:nti_final_project/screens/widgets/primary_button.dart';
 
 

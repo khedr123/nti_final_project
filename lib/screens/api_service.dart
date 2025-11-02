@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/product.dart';
+import 'package:nti_final_project/screens/product.dart';
 
 class ApiService {
   //

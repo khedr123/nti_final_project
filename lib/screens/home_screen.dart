@@ -1,6 +1,6 @@
-import 'package:e_commerceapp/models/product.dart';
-import 'package:e_commerceapp/services/api_service.dart';
 import 'package:flutter/material.dart';
+import 'package:nti_final_project/screens/api_service.dart';
+import 'package:nti_final_project/screens/product.dart';
 import 'product_details_screen.dart';
 
 class HomeScreen extends StatefulWidget {

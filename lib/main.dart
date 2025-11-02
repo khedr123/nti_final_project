@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nti_final_project/features/add_product/presentation/screens/add_service.dart';
+
 import 'cubits/login/login_cubit.dart';
 import 'features/auth/repository/auth_repository.dart';
 import 'features/auth/services/auth_api_service.dart';
-import 'screens/add_service.dart';
-import 'screens/login_screen.dart';
-import 'screens/splash_screen.dart';
-import 'screens/verify_screen.dart';
 
 void main() {
   runApp(
@@ -32,10 +30,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: AddServiceScreen(),
       title: 'Team Project',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: bgColor,
+        scaffoldBackgroundColor: Colors.white,
         textTheme: GoogleFonts.poppinsTextTheme(),
         appBarTheme: const AppBarTheme(
           backgroundColor: bgColor,
@@ -43,15 +42,13 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      initialRoute: '/loading',
-      routes: {
-        '/loading': (_) => const SplashScreen(),
-        '/login': (_) => const LoginScreen(),
-        '/verify': (_) => const VerifyScreen(),
-        '/addService': (_) => AddService(),
-      },
+      //  initialRoute: '/loading',
+      // routes: {
+      //  '/loading': (_) => const SplashScreen(),
+      //'/login': (_) => const LoginScreen(),
+      // '/verify': (_) => const VerifyScreen(),
+      // '/addService': (_) => AddServiceScreen(),
+      // },
     );
   }
 }
-
-
