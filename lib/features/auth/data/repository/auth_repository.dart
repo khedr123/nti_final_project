@@ -8,13 +8,24 @@ class AuthRepository {
 
   Future<Map<String, dynamic>> login(String email, String password) async {
     final Response response = await apiService.login(email, password);
-    return response.data ?? {};
+    print("Full login response: ${response.data}");
+    print("Status code: ${response.statusCode}");
+    print("Headers: ${response.headers}");
+    return {
+      "statusCode": response.statusCode,
+      "data": response.data,
+    };
   }
 
   Future<Map<String, dynamic>> verifyOtp(String email, String otp) async {
     final Response response = await apiService.verifyEmail(email, otp);
-    return response.data ?? {};
+    print("Full verify response: ${response.data}");
+    print("Status code: ${response.statusCode}");
+    print("Headers: ${response.headers}");
+
+    return {
+      "statusCode": response.statusCode,
+      "data": response.data,
+    };
   }
 }
-
-

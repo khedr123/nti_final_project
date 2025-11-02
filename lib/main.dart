@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nti_final_project/features/add_product/presentation/screens/add_service.dart';
-
+import 'package:nti_final_project/features/auth/view/splash_screen.dart';
+import 'package:nti_final_project/features/auth/view/verify_screen.dart';
 import 'cubits/login/login_cubit.dart';
-import 'features/auth/repository/auth_repository.dart';
-import 'features/auth/services/auth_api_service.dart';
+import 'features/auth/data/repository/auth_repository.dart';
+import 'features/auth/data/services/auth_api_service.dart';
 
 void main() {
   runApp(
@@ -23,14 +24,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static const Color bgColor = Color(0xFFF5F5DE);
+  static const Color bgColor = Colors.white;
   static const Color primaryBrown = Color(0xffA3856E);
   static const Color inputFill = Color(0xFFD9D9D9);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AddServiceScreen(),
+      home: SplashScreen(),
       title: 'Team Project',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      //  initialRoute: '/loading',
+      // initialRoute: '/loading',
       // routes: {
       //  '/loading': (_) => const SplashScreen(),
       //'/login': (_) => const LoginScreen(),

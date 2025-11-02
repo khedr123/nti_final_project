@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../features/auth/repository/auth_repository.dart';
+import '../../features/auth/data/repository/auth_repository.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -11,14 +11,19 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> login(String email, String password) async {
     emit(LoginLoading());
     userEmail = email;
-    try {
-      final response = await repository.login(email, password);
-      print("🔹 Login Response: $response");
 
-      if (response['statusCode'] == 200) {
-        emit(LoginSuccess(response['message'] ?? "OTP sent to your email"));
+    try {
+      final result = await repository.login(email, password);
+      final statusCode = result["statusCode"];
+      final data = result["data"];
+
+      print("🔹 Login Full Data: $data");
+      print("🔹 StatusCode: $statusCode");
+
+      if (statusCode == 200 && data != null && data["accessToken"] != null) {
+        emit(LoginSuccess(message: "Login successful", data: data));
       } else {
-        emit(LoginError(response['message'] ?? "Login failed"));
+        emit(LoginError("Login failed \n${data?['message'] ?? 'Unknown error'}"));
       }
     } catch (e) {
       emit(LoginError("Connection error: $e"));
@@ -29,16 +34,18 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
     try {
       final response = await repository.verifyOtp(userEmail ?? "", otp);
-      print("🔹 Verify Response: $response");
+      final statusCode = response["statusCode"];
+      final data = response["data"];
 
-      if (response['statusCode'] == 200) {
-        emit(LoginSuccess(response['message'] ?? "Email verified successfully"));
+      print("🔹 Verify Response: $data");
+
+      if (statusCode == 200) {
+        emit(LoginSuccess(message: "Email verified successfully"));
       } else {
-        emit(LoginError(response['message'] ?? "Invalid or expired OTP"));
+        emit(LoginError("Invalid or expired OTP"));
       }
     } catch (e) {
       emit(LoginError("Connection error: $e"));
     }
   }
 }
-
