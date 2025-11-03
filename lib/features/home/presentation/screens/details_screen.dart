@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nti_final_project/screens/product.dart';
+import 'package:nti_final_project/features/home/data/model/product.dart';
 
 
 class DetailsScreen extends StatelessWidget {

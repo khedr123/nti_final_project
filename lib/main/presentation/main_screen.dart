@@ -2,7 +2,7 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:nti_final_project/features/add_product/presentation/screens/add_service.dart';
 import 'package:nti_final_project/features/profile/presentation/screens/profile_screen.dart';
-import 'package:nti_final_project/screens/home_screen.dart';
+import 'package:nti_final_project/features/home/presentation/screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

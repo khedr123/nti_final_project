@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nti_final_project/screens/home_screen.dart';
+import 'package:nti_final_project/features/home/presentation/screens/home_screen.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../../../cubits/otp/otp_cubit.dart';
 import '../../../../../cubits/otp/otp_state.dart';

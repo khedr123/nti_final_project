@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nti_final_project/screens/home_screen.dart';
-import 'package:nti_final_project/screens/main_screen.dart';
+import 'package:nti_final_project/features/home/presentation/screens/home_screen.dart';
+import 'package:nti_final_project/main/presentation/main_screen.dart';
 
 import 'cubits/login/login_cubit.dart';
 import 'features/auth/data/repository/auth_repository.dart';

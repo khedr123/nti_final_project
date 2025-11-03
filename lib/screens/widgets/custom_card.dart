@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:nti_final_project/screens/details_screen.dart';
-import 'package:nti_final_project/screens/product.dart';
+import 'package:nti_final_project/features/home/presentation/screens/details_screen.dart';
+import 'package:nti_final_project/features/home/data/model/product.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel product;

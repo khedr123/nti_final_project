@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nti_final_project/features/auth/view/register_screen.dart';
 import '../../../main.dart';
-import '../../../screens/home_screen.dart';
+import '../../home/presentation/screens/home_screen.dart';
 import '../../../screens/widgets/custom_textformfield.dart';
 import '../../../screens/widgets/custom_elevated_button.dart';
 import '../../../../cubits/login/login_cubit.dart';
