@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nti_final_project/features/add_product/presentation/screens/add_service.dart';
+import 'package:nti_final_project/features/auth/view/register_screen.dart';
 import 'package:nti_final_project/features/auth/view/splash_screen.dart';
 import 'package:nti_final_project/features/auth/view/verify_screen.dart';
 import 'cubits/login/login_cubit.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      home: RegisterScreen(),
       title: 'Team Project',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nti_final_project/screens/register.dart';
+import 'package:nti_final_project/features/auth/view/register_screen.dart';
 import '../../../main.dart';
 import '../../../screens/home_screen.dart';
 import '../../../screens/widgets/custom_textformfield.dart';
