@@ -8,7 +8,7 @@ class ApiService {
       'https://accessories-eshop.runasp.net/api/products';
 
   //
-  static Future<List<Product>> fetchProducts() async {
+  static Future<List<ProductModel>> fetchProducts() async {
     try {
       final response = await http.get(Uri.parse(baseUrl));
 
@@ -18,7 +18,7 @@ class ApiService {
         //
         if (data['items'] != null && data['items'] is List) {
           final List items = data['items'];
-          return items.map((e) => Product.fromJson(e)).toList();
+          return items.map((e) => ProductModel.fromJson(e)).toList();
         } else {
           throw Exception('Invalid API response format: missing items');
         }
