@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nti_final_project/core/validators/validator.dart';
 import 'package:nti_final_project/features/auth/view/register_screen.dart';
-import '../../../main.dart';
-import '../../home/presentation/screens/home_screen.dart';
-import '../../../screens/widgets/custom_textformfield.dart';
-import '../../../screens/widgets/custom_elevated_button.dart';
+import 'package:nti_final_project/main/presentation/main_screen.dart';
+
 import '../../../../cubits/login/login_cubit.dart';
 import '../../../../cubits/login/login_state.dart';
-import 'package:nti_final_project/core/validators/validator.dart';
+import '../../../main.dart';
+import '../../../screens/widgets/custom_elevated_button.dart';
+import '../../../screens/widgets/custom_textformfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -30,9 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginLoading) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Logging in...")),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(const SnackBar(content: Text("Logging in...")));
         } else if (state is LoginSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -44,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Future.delayed(const Duration(seconds: 1), () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
+              MaterialPageRoute(builder: (context) => const MainScreen()),
             );
           });
         } else if (state is LoginError) {
@@ -98,10 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         _emailError!,
-                        style: const TextStyle(
-                          color: Colors.red,
-                          fontSize: 12,
-                        ),
+                        style: const TextStyle(color: Colors.red, fontSize: 12),
                       ),
                     ),
                   ),
@@ -127,10 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         _passError!,
-                        style: const TextStyle(
-                          color: Colors.red,
-                          fontSize: 12,
-                        ),
+                        style: const TextStyle(color: Colors.red, fontSize: 12),
                       ),
                     ),
                   ),
@@ -141,10 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {},
                     child: const Text(
                       "Forgot Password?",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Color(0xffA3856E),
-                      ),
+                      style: TextStyle(fontSize: 12, color: Color(0xffA3856E)),
                     ),
                   ),
                 ),
@@ -172,8 +164,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const SizedBox(height: 25),
 
-                const Text("or",
-                    style: TextStyle(fontSize: 14, color: Colors.black54)),
+                const Text(
+                  "or",
+                  style: TextStyle(fontSize: 14, color: Colors.black54),
+                ),
                 const SizedBox(height: 15),
 
                 OutlinedButton.icon(

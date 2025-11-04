@@ -19,6 +19,8 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
   final TextEditingController priceController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
   final TextEditingController stockController = TextEditingController();
+  final TextEditingController imageController = TextEditingController();
+
 
   final Dio dio = Dio();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -35,12 +37,11 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
           "description": descriptionController.text.trim(),
           "nameArabic": "ar",
           "descriptionArabic": "ع",
-          "coverPictureUrl":
-              "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...",
+          "coverPictureUrl":imageController.text,
           "price": double.tryParse(priceController.text) ?? 1,
           "stock": int.tryParse(stockController.text) ?? 1,
           "weight": 1,
-          "productPictureUrls": ["https://example.com/product1.png"],
+
           "color": "black",
         },
       );
@@ -90,6 +91,15 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
               spacing: 15,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Text(
+                  'image',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                CustomTextfield(
+                  label: 'Image',
+                  controller: imageController,
+                  obscureText: false,
+                ),
                 const Text(
                   'Service Name',
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),

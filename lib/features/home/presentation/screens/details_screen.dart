@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nti_final_project/features/home/data/model/product.dart';
 
-
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key, required this.product});
 
@@ -26,9 +25,50 @@ class DetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.network(product.imageUrl.toString(), width: 311, height: 202),
+            (product.imageUrl != null && product.imageUrl!.isNotEmpty)
+                ? Image.network(
+                    product.imageUrl.toString(),
+                    width: 311,
+                    height: 202,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (ctx, child, prog) {
+                      if (prog == null) return child;
+                      return Container(
+                        width: 311,
+                        height: 202,
+                        color: Colors.grey[200],
+                        child: const Center(
+                          child: SizedBox(
+                            width: 28,
+                            height: 28,
+                            child: CircularProgressIndicator(strokeWidth: 2.5),
+                          ),
+                        ),
+                      );
+                    },
+                    errorBuilder: (ctx, err, st) => Container(
+                      width: 311,
+                      height: 202,
+                      color: Colors.grey[200],
+                      child: const Center(
+                        child: Icon(
+                          Icons.broken_image,
+                          size: 44,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(
+                    width: 311,
+                    height: 202,
+                    color: Colors.grey[200],
+                    child: const Center(
+                      child: Icon(Icons.image, size: 44, color: Colors.grey),
+                    ),
+                  ),
             SizedBox(height: 16),
-            Text(product.name,),
+            Text(product.name),
             SizedBox(height: 6),
             Text("Price:${product.price.toString()}"),
             SizedBox(height: 6),

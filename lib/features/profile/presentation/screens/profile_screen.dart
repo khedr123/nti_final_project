@@ -248,6 +248,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
 class SectionHeader extends StatelessWidget {
   final String title;
+
   const SectionHeader({super.key, required this.title});
 
   @override
@@ -270,6 +271,7 @@ class SettingTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final VoidCallback onTap;
+
   const SettingTile({
     super.key,
     required this.icon,
